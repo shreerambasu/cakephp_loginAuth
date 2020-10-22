@@ -35,8 +35,14 @@
 					echo $this->Html->link( "ログアウト",   array('controller'=>'Users','action'=>'logout'), array('class'=>'nav-link') );
 	          		echo '</li>';
 
+					//ユーザ情報メニュ
 	          		echo '<li class="nav-item active">';
 					echo $this->Html->link( "ユーザ情報",   array('controller'=>'Users','action'=>'index'),array('class'=>'nav-link') );
+	          		echo '</li>';
+
+	          		//ブログメニュ
+	          		echo '<li class="nav-item active">';
+					echo $this->Html->link( "ブログ",   array('controller'=>'Blogs','action'=>'index'),array('class'=>'nav-link') );
 	          		echo '</li>';
 				}else{
 					echo $this->Html->link('ログイン', array('controller'=>'Users', 'action'=>'index'), array('class'=>'nav-link'));
@@ -47,7 +53,7 @@
             <a class="nav-link" href="#">Services</a>
           </li>
           <li class="nav-item">
-          <?= $this->Html->link('ブログ', array('controller'=>'Posts', 'action'=>'index'), array('class'=>'nav-link')) ?>
+          <?= $this->Html->link('ポスト一覧', array('controller'=>'Posts', 'action'=>'index'), array('class'=>'nav-link')) ?>
           </li>
 
           <li class="nav-item">

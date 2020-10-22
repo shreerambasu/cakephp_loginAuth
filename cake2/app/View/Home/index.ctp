@@ -6,29 +6,41 @@
       <!-- Post Content Column -->
       <div class="col-lg-8">
 
-        <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+<!-- Blogs Loop START -->
 
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
-        </p>
+        <?php foreach($blogs as $blog): ?>
+        	<!-- title -->
+	        <h3 class="mt-4"><?php echo h($blog['Blog']['title']); ?></h3>
+
+	        <!-- Author -->
+	        <small>by <a href="#"><?php echo h($blog['Blog']['author']); ?></a></small>
+
+	        <!-- Date/Time -->
+	        <p>Posted on: <?php echo h($blog['Blog']['created']); ?></p>
+	        <hr>
+
+	        <!-- Post Content -->
+	        <p class="lead">
+	        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($blog['Blog']['img']); ?>" class="img-fluid rounded" width="50" height="50" />
+	        <?php echo h($blog['Blog']['contain']); ?>
+	        </p>
+		<?php endforeach; ?>
+<!-- Blogs Loop END -->
+
+<!-- Blogs Pagination START -->
+		<div class="paginator">
+		    <ul class="pagination">
+		        <?= $this->Paginator->first('<<') ?> &nbsp;&nbsp;
+		        <?= $this->Paginator->prev('Previous') ?>&nbsp;&nbsp;
+		        <?= $this->Paginator->numbers() ?>&nbsp;&nbsp;
+		        <?= $this->Paginator->next('Next') ?>&nbsp;&nbsp;
+		        <?= $this->Paginator->last('>>') ?>&nbsp;
+		    </ul>
+		</div>
+<!-- Blogs Pagination END -->
+
 
         <hr>
-
-        <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
-        <hr>
-        <!-- Post Content -->
-        <p class="lead">
-        <?php echo $this->Html->image('tree.jpg', array('class'=>'img-fluid rounded', 'height'=>'50', 'width'=>'50')); ?>
-        Lorem ipsum dolor sit amet
-        </p>
-
-
-        <hr>
-
         <!-- Comments Form -->
         <div class="card my-4">
           <h5 class="card-header">Leave a Comment:</h5>

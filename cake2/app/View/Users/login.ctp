@@ -3,7 +3,7 @@
   <div id="formContent">
     <!-- Tabs Titles -->
     <?php echo $this->Session->flash('auth'); ?>
-
+    <?php echo $this->Session->flash('error'); ?>
     <!-- Icon -->
     <div class="fadeIn first">
 		<i class="fa fa-user" style='font-size:48px'></i>

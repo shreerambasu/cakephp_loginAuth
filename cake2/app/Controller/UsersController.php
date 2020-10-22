@@ -3,7 +3,7 @@
 class UsersController extends AppController {
 
     public $paginate = array(
-        'limit' => 25,
+        'limit' => 10,
         'conditions' => array('status' => '1'),
         'order' => array('User.username' => 'asc' )
     );
@@ -38,7 +38,7 @@ class UsersController extends AppController {
 
     public function index() {
         $this->paginate = array(
-            'limit' => 6,
+            'limit' => 2,
             'order' => array('User.username' => 'asc' )
         );
         $users = $this->paginate('User');

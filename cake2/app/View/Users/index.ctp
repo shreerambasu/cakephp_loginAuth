@@ -40,9 +40,15 @@
         <?php unset($user); ?>
     </tbody>
 </table>
-<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-<?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
-<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+<div class="paginator">
+    <ul class="pagination">
+        <?= $this->Paginator->first('<<') ?> &nbsp;&nbsp;
+        <?= $this->Paginator->prev('Previous') ?>&nbsp;&nbsp;
+        <?= $this->Paginator->numbers() ?>&nbsp;&nbsp;
+        <?= $this->Paginator->next('Next') ?>&nbsp;&nbsp;
+        <?= $this->Paginator->last('>>') ?>&nbsp;
+    </ul>
+</div>
 </div>
 <?php echo $this->Html->link( "Add A New User.",   array('action'=>'add'),array('escape' => false) ); ?>
 <br/>
